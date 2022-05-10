@@ -1,0 +1,14 @@
+.input-icon-container{
+    display: flex;
+    border: 1px #D9D6C5 solid;
+    width: 100%;
+    height: 100%;
+    .input-comp{
+        margin: 1rem 0rem 1rem 0.5rem;
+        width: 96%;
+        background-color: #FEFFED;
+    }
+    span{
+        margin: 0.5rem 0rem 0rem 0rem !important;
+    }
+}

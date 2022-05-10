@@ -1,0 +1,41 @@
+.listContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    .listContent{
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        .storeTitle{
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .storeSubtitle{
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: #A59F91;
+            margin-bottom: 1rem;
+        }
+        .pizzaCard{
+            width: 45%;
+            height: 45%;
+            margin: 1rem;
+            .name{
+                font-weight: bold;
+            }
+            .address{
+                color: #A59F91;
+            }
+        }
+    }
+    .listFooter{
+        width: 100%;
+        height: 10%;
+        background-color: black;
+
+    }
+}
