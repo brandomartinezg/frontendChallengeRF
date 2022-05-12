@@ -1,0 +1,22 @@
+@import '../../../styles/variables.module';
+.infoContent{
+    margin: 0rem 1rem;
+    color: $primaryColor;
+    .address{
+        color: #3d3c39;
+        font-weight: bold;
+        margin: 1rem 0rem;
+    }
+    .description{
+        color: #7a776f;
+        margin: 1rem 0rem;
+    }
+    .ourProduct{
+        color: black;
+    }
+    .buttonBack{
+        width: 25%;
+        height: 2.5rem;
+        margin: auto;
+    }
+}

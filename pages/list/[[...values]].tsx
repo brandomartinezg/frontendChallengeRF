@@ -1,21 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import { GetServerSideProps } from 'next'
-import { loginApi } from '../../api'
-import { LoginInterface, Store } from '../../interfaces'
-import { useDispatch, useSelector } from 'react-redux'
-import { setStores } from '../../redux/actions/storeActions'
-import { useRouter } from 'next/router';
-import { StoreInterface } from '../../redux/types/storeInterface';
-import styles from '../../components/templates/List.module.scss';
-import facebook from '../../public/iconsfacebook.svg';
+import Link from 'next/link'
 import Image from 'next/image'
-import pizzapanos from '../../public/Panos_pizza.png'
-import sbarro from '../../public/SBarro.png';
-import camion from '../../public/pizzeria_camion.png';
-import voglia from '../../public/voglia_di_pizza.png';
-import stroller from '../../public/stroller_pizza.png';
-import { CardComponent } from '../../components/molecules'
+import { LoginInterface, Store } from '../../interfaces'
 import { Layout } from '../../components/layout/Layout'
+import { ListCards, Footer } from '../../components/organisms'
+import { useLogin } from '../../hooks/useLogin'
+import { loginApi } from '../../api'
+import { InfoContent } from '../../components/organisms/infoContent/InfoContent'
+import pizza from '../../public/Pizza.png'
+import styles from '../../components/templates/List.module.scss'
 
 interface Props {
     user: string,
@@ -23,59 +17,46 @@ interface Props {
 }
 
 const Lists = ({user, stores}: Props) => {
-    const router = useRouter();
-    const dispatch = useDispatch();
-    const storesInStore = useSelector<StoreInterface, Store[]>(state => state.storeReducer);
-    console.log(storesInStore)
-    useEffect(() => {
-        if(stores)
-        {
-            dispatch(setStores(stores));
-            router.replace('/list');
-        }
-    }, [stores, dispatch, router]);
-
-    useEffect(() => {
-        if(!stores && !storesInStore)
-            router.replace('/')
-    }, [stores, storesInStore, router])
-    
-    const getImage = (id: number) => {
-        switch (id) {
-            case 1:
-                return pizzapanos;
-            case 2:
-                return sbarro;
-            case 3:
-                return camion;
-            case 4:
-                return voglia;
-            case 5:
-                return stroller;
-            default:
-                return sbarro;
-        }
+    const {storesInStore} = useLogin(stores);
+    const [storeSelected, setstoreSelected] = useState<Store>()
+    const onCardClick = (id: number) => {
+        const store = storesInStore.find(store => store.id === id);
+        setstoreSelected(store);
     }
-    
     return (
         <Layout>
-            <div className={styles.listContainer}>
-                <div className={styles.listContent}>
-                    <div className={styles.storeTitle}>Tiendas</div>
-                    <div className={styles.storeSubtitle}>Escoge tu pizzeria favorita</div>
-                    {storesInStore.length !== undefined ?
-                        storesInStore.map(store => (
-                            <div key={store.id} className={styles.pizzaCard}>
-                                <CardComponent image={getImage(store.id)} alt='pizza' />
-                                <div className={styles.name}>{store.name}</div>
-                                <div className={styles.address}>{store.address}</div>
-                            </div>
-                        )) :
-                        <div>{'Necesitas iniciar sesión'}</div>
-                    }
+            <div className={styles.listPage}>
+                <div className={styles.imageBackgroundLogin}>
+                    <Image
+                        src={pizza}
+                        alt='imagepizza'
+                    />
                 </div>
-                <div className={styles.listFooter}>
-                    <Image src={facebook} alt='facebook' />
+                <div className={styles.listContainer}>
+                    {storesInStore.length !== undefined ?
+                        <>
+                            {storeSelected ? 
+                            <InfoContent 
+                                onSetStore={() => setstoreSelected(undefined)} 
+                                store={storeSelected} 
+                            />
+                            :<ListCards 
+                                storesInStore={storesInStore}
+                                onCardClick={onCardClick}
+                            />}
+                            <Footer
+                                onClickBrand={() => setstoreSelected(undefined)}
+                            />
+                        </>
+                        :
+                        <h1 className={styles.nosesion}>
+                            {'Necesitas iniciar sesión'}
+                            <br></br>
+                            <Link href="/">
+                                <a  className={styles.linklogin}>Login</a>
+                            </Link>
+                        </h1>
+                    }
                 </div>
             </div>
         </Layout>

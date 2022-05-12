@@ -9,6 +9,10 @@
 }
 .buttonSubmit{
     height: 2rem;
+    @media screen and (min-width: 980px) {
+        width: 80%;
+        margin: 0rem auto;
+    }
 }
 .errorsField{
     color: red;

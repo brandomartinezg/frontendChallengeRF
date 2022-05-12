@@ -1,0 +1,47 @@
+.listContent{
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    @media screen and (min-width: 769px) {
+        flex-wrap: nowrap;    
+    }
+    .storeTitle{
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+    .storeSubtitle{
+        margin-top: 0.5rem;
+        font-size: 0.8rem;
+        color: #A59F91;
+        margin-bottom: 1rem;
+    }
+    .inputSearch{
+        width: 80%;
+        border: 1px solid gray;
+        background-color: #FEFFED;
+        @media screen and (min-width: 769px) {
+            width: 60%;
+        }
+    }
+    .pizzaCard{
+        width: 45%;
+        height: 45%;
+        margin: 1rem;
+        .name{
+            font-weight: bold;
+        }
+        .address{
+            color: #A59F91;
+        }
+        &:last-child{
+            margin-bottom: 6rem;
+        }
+        // @media screen and (min-width: 769px) {
+        //     &:last-child{
+        //         margin-bottom: 16rem;
+        //     }
+        // }
+    }
+}

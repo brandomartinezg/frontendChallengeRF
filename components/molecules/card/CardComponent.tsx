@@ -1,20 +1,37 @@
 import React from 'react'
-import pizza from '../../../public/Panos_pizza.png'
 import styles from './CardComponent.module.scss';
 import Image, { StaticImageData } from 'next/image'
+import { Carousel } from 'react-responsive-carousel';
 
 interface Props {
-    image: string | StaticImageData,
-    alt: string
+  images: string[] | StaticImageData[];
+  alt: string;
+  onCardClick: (id: number) =>  void;
+  
 }
 
-export const CardComponent = ({image, alt}: Props) => {
+export const CardComponent = ({images, alt, onCardClick}: Props) => {
   return (
       <div className={styles['card-component']}>
-          <Image
-            src={image}
-            alt={alt}
-          />
+        <Carousel
+          autoPlay
+          infiniteLoop
+          showThumbs={false}
+          onClickItem={onCardClick}
+        >
+          {
+            images.map(image => (
+              <div 
+                key={JSON.stringify(image)}
+              >
+                <Image
+                  src={image}
+                  alt={alt}
+                />
+              </div>
+            ))
+          }
+        </Carousel>
       </div>
   )
 }

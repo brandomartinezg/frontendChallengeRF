@@ -11,4 +11,11 @@
     span{
         margin: 0.5rem 0rem 0rem 0rem !important;
     }
+    @media screen and (min-width: 769px) {
+        height: 20%;
+    }
+    @media screen and (min-width: 980px) {
+        width: 80%;
+        margin: 0rem auto;
+    }
 }

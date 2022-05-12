@@ -6,6 +6,7 @@ import { Layout } from '../components/layout/Layout'
 import bestPizza from '../public/Login-Best-Pizza.png';
 import styles from '../components/templates/Login.module.scss';
 import { Form, InitialObject } from '../components/organisms';
+import pizza from '../public/Pizza.png';
 
 
 const Home: NextPage = () => {
@@ -17,17 +18,25 @@ const Home: NextPage = () => {
   }
   return (
     <Layout title='Login  -  RobinFood'>
-      <div className={styles.loginContainer}>
-        <div className={styles.brandImage}>
+      <div className={styles.login}>
+        <div className={styles.imageBackgroundLogin}>
           <Image
-            src={bestPizza}
-            alt='brand'
+            src={pizza}
+            alt='Imagepizza'
           />
         </div>
-        <h1 className={styles.welcomeTitle} >Bienvenido</h1>
-        <div className={styles.subtitle}>A las mejores pizzas del país</div>
-        {refRouter.current ? <div>Credenciales erroneas</div>: <></>}
-        <Form onLogin={onLogin}/>
+        <div className={styles.loginContainer}>
+          <div className={styles.brandImage}>
+            <Image
+              src={bestPizza}
+              alt='brand'
+            />
+          </div>
+          <h1 className={styles.welcomeTitle} >Bienvenido</h1>
+          <div className={styles.subtitle}>A las mejores pizzas del país</div>
+          {refRouter.current ? <div>Credenciales erroneas</div>: <></>}
+          <Form onLogin={onLogin}/>
+        </div>
       </div>
     </Layout>
   )

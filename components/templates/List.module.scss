@@ -1,41 +1,38 @@
-.listContainer{
-    width: 100%;
-    height: 100%;
+.listPage{
     display: flex;
-    flex-direction: column;
-    padding-top: 2rem;
-    .listContent{
-        height: 90%;
+    .listContainer{
+        width: 100%;
+        height: 100%;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        flex-wrap: wrap;
-        .storeTitle{
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-        .storeSubtitle{
-            margin-top: 0.5rem;
-            font-size: 0.8rem;
-            color: #A59F91;
-            margin-bottom: 1rem;
-        }
-        .pizzaCard{
-            width: 45%;
-            height: 45%;
-            margin: 1rem;
-            .name{
-                font-weight: bold;
-            }
-            .address{
-                color: #A59F91;
-            }
+        padding-top: 2rem;
+        @media screen and (min-width: 769px) {
+            width: 50%;
+            height: 100vh;
+            overflow-y: auto;
         }
     }
-    .listFooter{
-        width: 100%;
-        height: 10%;
-        background-color: black;
-
+    .nosesion{
+        margin: auto;
+        .linklogin{
+            color: skyblue;
+            text-decoration: underline;
+        }
+    }
+    .imageBackgroundLogin{
+        background-image: url("/img/imagebkg.png");
+        box-sizing: border-box;
+        min-height: 100vh;
+        display: none;
+        @media screen and (min-width: 769px) {
+            display: block;
+            width: 50%;
+            min-width: 50%;
+            height: 100vh;
+            position: relative;
+            & > span {
+                margin-top: 10% !important;
+            }
+        }
     }
 }

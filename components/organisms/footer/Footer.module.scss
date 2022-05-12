@@ -1,0 +1,34 @@
+.listFooter{
+    width: 100%;
+    height: 10%;
+    background-color: black;
+    display: flex;
+    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+    position: fixed;
+    bottom: 0;
+    z-index: 99;
+    .socialMedia{
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        padding-left: 1rem;
+        span:last-child{
+            height: 1.5rem !important;
+            margin-left: 1rem !important;
+        }
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .bestPizza{
+        display: flex;
+        margin-top: 0.5rem;
+        margin-right: 1rem;
+        width: 8%;
+        height: 60%;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+} 
