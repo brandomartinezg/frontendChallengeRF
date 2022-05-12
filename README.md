@@ -1,34 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Instructions to execute app
 
-## Getting Started
+First execute the next command
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
+```
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then execute this command
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```
+npm run dev
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+This command run the develop server
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+For the build to production use
 
-## Learn More
+```
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+and then
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+In both cases, both for development and production the server is in [http://localhost:3000/](http://localhost:3000/)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Para el desarrollo de aplicación usé next js, ya que nos ayuda a escribir mejor código de react, además de que nos provee el renderizado del lado del servidor lo cual es muy útil para hacer validaciones de credenciales sin que el usuario se entere, además de que nos ayuda con la indexación y el SEO.
+Además con la ayuda de typescript podemos tener un fuerte tipado de javascript, que aunque no es infalible, sí ayuda bastante a no cometer errores en los tipos.
+Para el modelado de los componentes usé un poco de atomic design el cuál nos dice que empecemos desde los componentes más pequeños y construir más grandes.
+Para el css usé sass ya que nos provee de mucha flexibilidad del lado del css.
+Y por último hice first mobile, ya que lo primero que intentan servir los navegadores es la página para telefonos, por lo que es muy importante tener un buen diseño móvil.
